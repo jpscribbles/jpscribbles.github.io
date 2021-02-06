@@ -23,13 +23,13 @@
         // data comes through as a simple array since simpleSheet is turned on
         
         let arr = []
-arr.push(`<table>`)
+arr.push(`<table style="width:100%"id="grouped-headers">`)
 
 arr.push(`<thead>`)
 arr.push(`<tr>`)
 
     for (let [tabs, module] of Object.entries(data[0])) {
-    arr.push(`<td>${tabs}</td>`)
+    arr.push(`<th nowrap="">${tabs}<img src="../tablefilter/style/themes/updown.png"></th>`)
 
     }
 
