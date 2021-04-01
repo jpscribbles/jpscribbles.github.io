@@ -1,19 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  
-	// DUMMY SLEEP FUNCTION
-var sleep = function(ms){
-  let now = Date.now(),
-      end = now + ms;
-  while (now < end) {
-    now = Date.now();
-  }
-};
 
-// TEST RUN
-console.log("Foo");
-sleep(1000); // Wait 1 second
-console.log("Bar");
 	
 <head>
     <meta charset="UTF-8">
@@ -76,6 +63,25 @@ console.log(`maker${data}`)
  <script type="text/javascript" src="papaparse.min.js"></script>
 
   <script>
+	  
+	    
+	// DUMMY SLEEP FUNCTION
+var sleep = function(ms){
+  let now = Date.now(),
+      end = now + ms;
+  while (now < end) {
+    now = Date.now();
+  }
+};
+
+// TEST RUN
+console.log("Foo");
+sleep(1000); // Wait 1 second
+console.log("Bar");
+	  
+	  
+	  
+	  
 let tableData = document.getElementById("tableData")
 let data;
       var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1SLE_E7y4db0mjvNlZMRd_yMzKtngO0IEeD-80PzAPMQ/pub?output=csv';
@@ -92,7 +98,7 @@ let data;
       }
 
      init()
-
+sleep(8000);
 
       function showInfo(results) {
         data = results.data
