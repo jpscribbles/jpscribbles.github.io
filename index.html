@@ -26,14 +26,38 @@
           arr.push(`</tr>`)
 
         }
-
+        console.log(`maker${data}`)
         return arr.join("\n")
 
       }
     </script>
 
     <table style="width:100%" id="groupedHeaders">
+      <thead>
+        <tr>
+          <th nowrap="">Timestamp<img src="tablefilter/style/themes/updown.png"></th>
+          <th nowrap="">Creator<img src="tablefilter/style/themes/updown.png"></th>
+          <th nowrap="">Diameter<img src="tablefilter/style/themes/updown.png"></th>
+          <th nowrap="">Structural<img src="tablefilter/style/themes/updown.png"></th>
+          <th nowrap="">Profile<img src="tablefilter/style/themes/updown.png"></th>
+          <th nowrap="">Polyhedra<img src="tablefilter/style/themes/updown.png"></th>
+          <th nowrap="">Class<img src="tablefilter/style/themes/updown.png"></th>
+          <th nowrap="">Frequency<img src="tablefilter/style/themes/updown.png"></th>
+          <th nowrap="">Frame Material<img src="tablefilter/style/themes/updown.png"></th>
+          <th nowrap="">Country<img src="tablefilter/style/themes/updown.png"></th>
+          <th nowrap="">City (optional)<img src="tablefilter/style/themes/updown.png"></th>
+          <th nowrap="">Coordinates (optional)<img src="tablefilter/style/themes/updown.png"></th>
+          <th nowrap="">Web Address (optional)<img src="tablefilter/style/themes/updown.png"></th>
+          <th nowrap="">Would you like a Webpage on diydomebuilders?<img src="tablefilter/style/themes/updown.png"></th>
+          <th nowrap="">Place all your Text Content here<img src="tablefilter/style/themes/updown.png"></th>
+          <th nowrap="">Upload your images here<img src="tablefilter/style/themes/updown.png"></th>
+          <th nowrap="">Year Created<img src="tablefilter/style/themes/updown.png"></th>
+        </tr>
+      </thead>
 
+      <tbody id="tableData">
+
+      </tbody>
     </table>
 
     <script type="text/javascript" src="papaparse.min.js"></script>
