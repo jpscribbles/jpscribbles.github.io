@@ -63,7 +63,7 @@ let arr = []
 
   <script>
 let tableData = document.getElementById("tableData")
-
+var data;
       var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1SLE_E7y4db0mjvNlZMRd_yMzKtngO0IEeD-80PzAPMQ/pub?output=csv';
 
       function init() {
@@ -78,10 +78,12 @@ let tableData = document.getElementById("tableData")
 
 
       function showInfo(results) {
-        var data = results.data
-	tableData.innerHTML = diyTableMaker(data)
+        data = results.data
+	
         // data comes through as a simple array since simpleSheet is turned on
         }
+	  
+	  tableData.innerHTML = diyTableMaker(data)
 </script>
 
 
