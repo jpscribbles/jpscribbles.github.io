@@ -12,21 +12,7 @@
   <script>
 function diyTableMaker(tableContent){
 let arr = []
-        arr.push(`<table style="width:100%" id="groupedHeaders">`)
 
-  arr.push(`<thead>`)
-  arr.push(`<tr>`)
-
-
-        tableContent[0].forEach(function(el){
-        if (el)  arr.push(`<th nowrap="">${el}<img src="tablefilter/style/themes/updown.png"></th>`)
-        })
-
-  arr.push(`</tr>`)
-  arr.push(`</thead>`)
-
-
-arr.push(`<tbody style="text-align:left">`)
         
       for (let i = 1; i < tableContent.length; i++){ //starts at 1, dont need headers
 
@@ -40,20 +26,43 @@ arr.push(`<tbody style="text-align:left">`)
 
       }
 
-      arr.push(`</tbody>`)
-      arr.push(`</table>`)
-
       return arr.join("\n")
 
 }
 </script>
 
-	  <div id="groupedHeaders"> </div>
+	  <table style="width:100%" id="groupedHeaders">
+		  <thead>
+			  <tr>
+<th nowrap="">Timestamp<img src="tablefilter/style/themes/updown.png"></th>
+<th nowrap="">Creator<img src="tablefilter/style/themes/updown.png"></th>
+<th nowrap="">Diameter<img src="tablefilter/style/themes/updown.png"></th>
+<th nowrap="">Structural<img src="tablefilter/style/themes/updown.png"></th>
+<th nowrap="">Profile<img src="tablefilter/style/themes/updown.png"></th>
+<th nowrap="">Polyhedra<img src="tablefilter/style/themes/updown.png"></th>
+<th nowrap="">Class<img src="tablefilter/style/themes/updown.png"></th>
+<th nowrap="">Frequency<img src="tablefilter/style/themes/updown.png"></th>
+<th nowrap="">Frame Material<img src="tablefilter/style/themes/updown.png"></th>
+<th nowrap="">Country<img src="tablefilter/style/themes/updown.png"></th>
+<th nowrap="">City (optional)<img src="tablefilter/style/themes/updown.png"></th>
+<th nowrap="">Coordinates (optional)<img src="tablefilter/style/themes/updown.png"></th>
+<th nowrap="">Web Address (optional)<img src="tablefilter/style/themes/updown.png"></th>
+<th nowrap="">Would you like a Webpage on diydomebuilders?<img src="tablefilter/style/themes/updown.png"></th>
+<th nowrap="">Place all your Text Content here<img src="tablefilter/style/themes/updown.png"></th>
+<th nowrap="">Upload your images here<img src="tablefilter/style/themes/updown.png"></th>
+<th nowrap="">Year Created<img src="tablefilter/style/themes/updown.png"></th>
+</tr>
+			  </thead>
+		  
+		  <tbody id="tableData">
+			  
+		  </tbody>
+	  </table>
 
  <script type="text/javascript" src="papaparse.min.js"></script>
 
   <script>
-let groupedHeaders = document.getElementById("groupedHeaders")
+let tableData = document.getElementById("tableData")
 
       var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1SLE_E7y4db0mjvNlZMRd_yMzKtngO0IEeD-80PzAPMQ/pub?output=csv';
 
@@ -70,7 +79,7 @@ let groupedHeaders = document.getElementById("groupedHeaders")
 
       function showInfo(results) {
         var data = results.data
-	groupedHeaders.innerHTML = diyTableMaker(data)
+	tableData.innerHTML = diyTableMaker(data)
         // data comes through as a simple array since simpleSheet is turned on
         }
 </script>
