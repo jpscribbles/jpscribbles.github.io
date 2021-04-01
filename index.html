@@ -25,7 +25,7 @@ let arr = []
         arr.push(`</tr>`)
 
       }
-
+console.log(`maker${data}`)
       return arr.join("\n")
 
 }
@@ -79,11 +79,11 @@ let data;
 
       function showInfo(results) {
         data = results.data
-	console.log(data)
-	      console.log("this")
+	console.log(`1st${data}`)
+	      
         // data comes through as a simple array since simpleSheet is turned on
         }
-	  console.log(data)
+	  console.log(`2nd${data}`)
 	  tableData.innerHTML = diyTableMaker(data)
 </script>
 
@@ -91,6 +91,7 @@ let data;
   <script src="tablefilter/tablefilter.js"></script>
 
 <script data-config>
+	console.log(`3rd${data}`)
     var tfConfig = {
         base_path: '../tablefilter/',
 
@@ -145,7 +146,7 @@ let data;
   
   var tf = new TableFilter('groupedHeaders', tfConfig, 2);
      tf.init()
-
+console.log(`4th${data}`)
 </script>
 
     
