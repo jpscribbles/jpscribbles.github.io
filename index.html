@@ -67,11 +67,14 @@ let data;
       var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1SLE_E7y4db0mjvNlZMRd_yMzKtngO0IEeD-80PzAPMQ/pub?output=csv';
 
       function init() {
+	      console.log(`init${data}`)
         Papa.parse(public_spreadsheet_url, {
           download: true,
           header: false,
           complete: showInfo
         })
+	      
+	      console.log(`end init${data}`)
       }
 
       init()
