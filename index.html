@@ -1,75 +1,154 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Grouped headers | TableFilter</title>
+  </head>
+  
   <body>
-    <p id="food"></p>
 
-    <script type="text/javascript" src="papaparse.min.js"></script>
-    <script type="text/javascript">
+  <script>
+function diyTableMaker(tableContent){
+
+      let arr = []
+      let tableArray = tableContent.split("\n")
+
+        arr.push(`<table style="width:100%" id="groupedHeaders">`)
+
+  arr.push(`<thead>`)
+  arr.push(`<tr>`)
+
+ let tableHeaders = tableArray[0].split("\t")
+
+        tableHeaders.forEach(function(el){
+        if (el)  arr.push(`<th nowrap="">${el}<img src="../tablefilter/style/themes/updown.png"></th>`)
+        })
+
+  arr.push(`</tr>`)
+  arr.push(`</thead>`)
+
+
+arr.push(`<tbody style="text-align:left">`)
+        
+      for (let i = 1; i < tableArray.length; i++){ //starts at 1, dont need headers
+
+let tableArray2 = tableArray[i].split("\t")
+
+        arr.push(`<tr>`)
+
+        tableArray2.forEach(function(el){
+		if (el) arr.push(`<td>${el}</td>`)
+        })
+
+        arr.push(`</tr>`)
+
+      }
+
+      arr.push(`</tbody>`)
+      arr.push(`</table>`)
+
+      return arr.join("\n")
+
+}
+</script>
+
+    
+    <table style="width:100%" id="groupedHeaders">
+<tr>sdfgsdfg</tr>
+    </table>
+
+
+ <script type="text/javascript" src="papaparse.min.js"></script>
+
+  <script>
+let groupedHeaders = document.getElementById("groupedHeaders")
+
       var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1SLE_E7y4db0mjvNlZMRd_yMzKtngO0IEeD-80PzAPMQ/pub?output=csv';
 
       function init() {
         Papa.parse(public_spreadsheet_url, {
           download: true,
-          header: true,
+          header: false,
           complete: showInfo
         })
       }
 
-      window.addEventListener('DOMContentLoaded', init)
+      init()
+
 
       function showInfo(results) {
         var data = results.data
-
+	groupedHeaders.innerHTML = diyTableMaker(data)
         // data comes through as a simple array since simpleSheet is turned on
+        }
+</script>
+
+
+  <script src="tablefilter/tablefilter.js"></script>
+
+<script data-config>
+    var tfConfig = {
+        base_path: 'tablefilter/',
+
+                    auto_filter: {
+            delay: 0 //milliseconds
+        },
+        // filter types
+   
+        col_2: "checklist",
+   col_3: "checklist",
+        col_4: "checklist",
+   col_5: "checklist",
+           col_6: "checklist",
+   col_7: "checklist",
+           col_8: "checklist",
+
+
+        // column types
+        col_types: [
+            'string', 'string', 'number',
+            'string', 'string', 'string'
+            
+        ],
+
+        // filters and headers position
+        filters_row_index: 1,
+        headers_row_index: 0,
+                        sticky_headers: true,
+        state: { types: ['local_storage']},
+        popup_filters: false,
+
+        alternate_rows: true,
+        rows_counter: true,
+        btn_reset: true,
+        status_bar: true,
+        ignore_diacritics: true,
+        no_results_message: true,
+        enable_empty_option: false,
+        enable_non_empty_option: false,
+        loader: false,
+        mark_active_columns: false,
+        highlight_keywords: false,
         
-        let arr = []
-arr.push(`<table style="width:100%"id="grouped-headers">`)
-
-arr.push(`<thead>`)
-arr.push(`<tr>`)
-
-    for (let [tabs, module] of Object.entries(data[0])) {
-    arr.push(`<th nowrap="">${tabs}<img src="../tablefilter/style/themes/updown.png"></th>`)
-
-    }
-
-arr.push(`</tr>`)
-arr.push(`</thead>`)
-
-
-
-arr.push(`<tbody style="text-align:left">`)
-        
-        data.forEach(function(el){
-          
-          arr.push(`<tr>`)
-
-   for (let [tabs, module] of Object.entries(el)) {
-      arr.push(`<td>${module}</td>`)
-
-    }
-
-  arr.push(`</tr>`)
-
-
-}
-)
+         // theme
+        themes: [{ name: '' }],
         
 
-        
-        
-  arr.push(`</tbody>`)
+        // sorting extension
+        extensions: [{ name: 'sort' }]
+    };
+    
+  
+  var tf = new TableFilter('groupedHeaders', tfConfig, 2);
+     tf.init()
 
-arr.push(`</table>`)
+</script>
 
+    
+<hr>
 
-        document.getElementById("food").innerHTML = arr.join("\n");
-        console.log(data);
-      }
-
- 
-    </script>
   </body>
+
 </html>
-
-
