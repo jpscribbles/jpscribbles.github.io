@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
   
+	// DUMMY SLEEP FUNCTION
+var sleep = function(ms){
+  let now = Date.now(),
+      end = now + ms;
+  while (now < end) {
+    now = Date.now();
+  }
+};
+
+// TEST RUN
+console.log("Foo");
+sleep(1000); // Wait 1 second
+console.log("Bar");
+	
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -77,17 +91,17 @@ let data;
 	      console.log(`end init${data}`)
       }
 
-     
+     init()
 
 
       function showInfo(results) {
         data = results.data
 	console.log(`1st${data}`)
-	      
+	      tableData.innerHTML = diyTableMaker(data)
         // data comes through as a simple array since simpleSheet is turned on
         }
 	  console.log(`2nd${data}`)
-	  tableData.innerHTML = diyTableMaker(data)
+	  
 </script>
 
 
