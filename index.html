@@ -12,18 +12,14 @@
   <script>
 function diyTableMaker(tableContent){
 
-      let arr = []
-      let tableArray = tableContent.split("\n")
-
         arr.push(`<table style="width:100%" id="groupedHeaders">`)
 
   arr.push(`<thead>`)
   arr.push(`<tr>`)
 
- let tableHeaders = tableArray[0].split("\t")
 
-        tableHeaders.forEach(function(el){
-        if (el)  arr.push(`<th nowrap="">${el}<img src="../tablefilter/style/themes/updown.png"></th>`)
+        tableContent[0].forEach(function(el){
+        if (el)  arr.push(`<th nowrap="">${el}<img src="tablefilter/style/themes/updown.png"></th>`)
         })
 
   arr.push(`</tr>`)
@@ -32,13 +28,11 @@ function diyTableMaker(tableContent){
 
 arr.push(`<tbody style="text-align:left">`)
         
-      for (let i = 1; i < tableArray.length; i++){ //starts at 1, dont need headers
-
-let tableArray2 = tableArray[i].split("\t")
+      for (let i = 1; i < tableContent.length; i++){ //starts at 1, dont need headers
 
         arr.push(`<tr>`)
 
-        tableArray2.forEach(function(el){
+        tableContent[i].forEach(function(el){
 		if (el) arr.push(`<td>${el}</td>`)
         })
 
