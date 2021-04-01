@@ -100,12 +100,7 @@ let data;
      init()
 sleep(8000);
 
-      function showInfo(results) {
-        data = results.data
-	console.log(`1st${data}`)
-	      tableData.innerHTML = diyTableMaker(data)
-        // data comes through as a simple array since simpleSheet is turned on
-        }
+
 	  console.log(`2nd${data}`)
 	  
 </script>
@@ -168,8 +163,16 @@ sleep(8000);
     
   
   var tf = new TableFilter('groupedHeaders', tfConfig, 2);
-     tf.init()
+     
 console.log(`4th${data}`)
+	      function showInfo(results) {
+        data = results.data
+	console.log(`1st${data}`)
+	      tableData.innerHTML = diyTableMaker(data)
+        // data comes through as a simple array since simpleSheet is turned on
+		tf.init()      
+        }
+	
 </script>
 
     
